@@ -41,6 +41,7 @@ import frc.robot.Utilities.*;
 
     //Enables voltage compensation on the TalonSRX to attempt to normalize output over wide range of bus voltage throughout a match
     m_turretMotor.configVoltageCompSaturation(GlobalConstants.kVoltCompensation);
+    SmartDashboard.putBoolean("Limelight", false);
   }
   /**
    * Uses the output from the PIDController to set the motor%.
@@ -101,10 +102,10 @@ import frc.robot.Utilities.*;
     //When the limelight does not have a valid solution, keep the turret facing the alliance wall and search back and
     //forth until a solution is found
     if (trackTarget && !visionSolution) {
-      if (searchClockwise && getPotentionmeter() > angle + Math.PI / 6.0) {
+      if (searchClockwise && getPotentionmeter() > angle + Math.PI / 3.0) {
         searchClockwise = false;
       }
-      if (!searchClockwise && getPotentionmeter() < angle - Math.PI / 6.0) {
+      if (!searchClockwise && getPotentionmeter() < angle - Math.PI / 3.0) {
         searchClockwise = true;
       }
 
